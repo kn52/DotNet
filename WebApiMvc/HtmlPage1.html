@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ulEmployees = $('#ulEmployees');
+            var user = $('#username');
+            var pass = $('#password');
+            $('#btnGetEmployees').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    // Make sure to change the port number to
+                    // where you have the employee service
+                    // running on your local machine
+                    url: 'http://localhost:50356/Employee',
+                    dataType: 'json',
+                    data: {
+                        Gender: 'All'
+                    },
+                    headers: {
+                        'Authorization': 'Basic' + btoa(user + ":" + pass)
+                    },
+                    success: function (data) {
+                        ulEmployees.empty();
+                        $.each(data, function (index, val) {
+                            ulEmployees.append(
+                                '<li>' +
+                                    "Id -" + val.Id +
+                                    '<ul>'+
+                                        '<li>' +
+                                            "First Name - " + val.FName +
+                                        '</li>' +
+                                        '<li>' +
+                                                "Last Name - " + val.LName +
+                                        '</li>' +
+                                        '<li>' +
+                                            "Email - " + val.Email +
+                                        '</li>' +
+                                        '<li>' +
+                                            "Password - " + val.Password +
+                                        '</li>' +
+                                        '<li>' +
+                                            "Phone Number - " + val.PhoneNumber +
+                                        '</li>' +
+                                        '<li>' +
+                                            "Gender - " + val.Gender +
+                                        '</li>' +
+                                    '</ul>' +
+                                '</li>'
+                            );
+                        });
+                    },
+                    complete: function (st) {
+                        if (st.status == 404) {
+                            ulEmployees.empty();
+                            ulEmployees.append(
+                                '<li>' +
+                                "Not Authorized" +
+                                '</li>'
+                            );
+                        }
+                    } 
+                });
+            });
+            $('#btnClear').click(function () {
+                ulEmployees.empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        UserName <input id="username" type="text" />
+        Password <input id="password" type="text" /><br />
+        <br />
+        <input id="btnGetEmployees" type="button" value="Get All Employees" />
+        <input id="btnClear" type="button" value="Clear" />
+        <ul id="ulEmployees" />
+    </div>
+</body>
+</html>
