@@ -1,0 +1,40 @@
+﻿namespace DataLayer
+{
+    using EmpLayer;
+    using RepoLayer;
+    using System.Collections.Generic;
+    public class DLayer : IDLayer
+    {
+        public DLayer(IRLayer ops)
+        {
+            this.Repository = ops;
+        }
+
+        public IRLayer Repository { get; set; }
+
+        public IEnumerable<Emp> GetAllEmployees()
+        {
+            return this.Repository.GetAllEmployees();
+        }
+
+        public string AddEmployee(Emp emp)
+        {
+            return Repository.AddEmployee(emp);
+        }
+
+        public string EncodeDecodePassword(string password)
+        {
+            return Repository.EncodeDecodePassword(password);
+        }
+
+        public string GenerateJSONWebToken()
+        {
+            return Repository.GenerateJSONWebToken();
+        }
+
+        public bool ValidateJSONWebToken(string token)
+        {
+            return Repository.ValidateJSONWebToken(token);
+        }
+    }
+}
