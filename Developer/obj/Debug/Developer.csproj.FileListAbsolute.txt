@@ -1,0 +1,7 @@
+D:\AAA\VisualStudio\DeveloperSln\Developer\bin\Debug\Developer.exe.config
+D:\AAA\VisualStudio\DeveloperSln\Developer\bin\Debug\Developer.exe
+D:\AAA\VisualStudio\DeveloperSln\Developer\bin\Debug\Developer.pdb
+D:\AAA\VisualStudio\DeveloperSln\Developer\obj\Debug\Developer.csprojAssemblyReference.cache
+D:\AAA\VisualStudio\DeveloperSln\Developer\obj\Debug\Developer.csproj.CoreCompileInputs.cache
+D:\AAA\VisualStudio\DeveloperSln\Developer\obj\Debug\Developer.exe
+D:\AAA\VisualStudio\DeveloperSln\Developer\obj\Debug\Developer.pdb
