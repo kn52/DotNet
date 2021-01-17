@@ -1,0 +1,46 @@
+﻿@model StudentMgmt.Models.Student
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Page Title</title>
+</head>
+<body>
+    <h2>@ViewBag.Header</h2>
+    <table style="font-family:Arial">
+        <tr>
+            <td>Student Id:&nbsp;</td>
+            <td>@Model.StudentId </td>
+        </tr>
+        <tr>
+            <td>First Name:&nbsp;</td>
+            <td>@Model.FirstName</td>
+        </tr>
+        <tr>
+            <td>Last Name:&nbsp;</td>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <td>Email:&nbsp;</td>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td>Password:&nbsp;</td>
+            <td>@Model.Password</td>
+        </tr>
+        <tr>
+            <td>Number:&nbsp;</td>
+            <td>@Model.PhoneNumber</td>
+        </tr>
+        <tr>
+            <td colspan="2"><h2>=========</h2></td>
+        </tr>
+    </table>
+    <div>
+        @Html.ActionLink("Back To Student List", "Department",new { department = @Model.Department}) &nbsp;&nbsp;
+        @Html.ActionLink("Back To Department List", "Index")
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<StudentMgmt.Models.Student>
+@using StudentMgmt.Models
+
+<div style="font-family:Arial">
+    @{
+        ViewBag.Title = "Student List";
+    }
+    <h2>@ViewBag.Header</h2>
+    <ul>
+        @foreach (Student stud in @Model)
+        {
+            <li>
+                @Html.ActionLink(@stud.FirstName + " " + @stud.LastName, "Details", new { id = @stud.StudentId })
+            </li>
+        }
+    </ul>
+    <div>
+        @Html.ActionLink("Back To Department List", "Index")
+    </div>
+</div>

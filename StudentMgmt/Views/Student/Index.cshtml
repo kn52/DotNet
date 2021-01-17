@@ -1,0 +1,16 @@
+﻿@model IEnumerable<String>
+
+<div style="font-family:Arial">
+    @{
+        ViewBag.Title = "Department List";
+    }
+    <h2>@ViewBag.Header</h2>
+    <ul>
+        @foreach (var stud in @Model)
+        {
+            <li>
+                @Html.ActionLink(stud,"Department",new { department = stud})
+            </li>
+        }
+    </ul>
+</div>
